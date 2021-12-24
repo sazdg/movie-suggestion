@@ -1,0 +1,27 @@
+movie generator
+sql
+php
+ajax
+js
+
+movie:
+year
+genre
+title
+rating
+
+azioni nel DB:
+lettura (utente) (movie)
+inserimento (nuovo utente) (movie - solo per amministratore)
+cancellazione (movie - solo per amministratore)
+
+sessione utente:
+locandine film visti in precedenza
+film appena consigliati
+lista film da vedere (?)
+
+1 - creare la pagina index id app
+1.1 - creare un database
+2 - creare classe per la creazione della connessione al db
+3 - chiamata e controllo login in login.php
+4 - creare le pagine js con codice html dell'interfaccia e l chiamata ajax alla api 

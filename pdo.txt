@@ -1,0 +1,23 @@
+PDO
+
+connessione:
+new PDO("mysql:host=".$this->host.";dbname=".$this->nome.";charset=utf8", $this->username, $this->password);
+then return $this->conn;
+
+include
+$database  = new Database()
+$db = database->getConnection()
+
+$query = "SELECT...."
+
+$result = $db->prepare($query)
+$result->execute()
+
+oppure
+$result = $db->query($query)
+
+$row_count = $result->rowCount()
+
+per ritornare tutte le righe 
+$row = $result->fetch(PDO::FETCH_ASSOC)
+$risposta = $result->fetch()
