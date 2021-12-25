@@ -10,9 +10,9 @@ class Database {
         $this->conn = null;
         try{
             $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->nome.";charset=utf8", $this->username, $this->password);
-            //echo "db works B) ";
+            //echo "{ DB works }";
         }catch(PDOException $e){
-            echo "db doesn't work " . $e->getMessage();
+            echo "{ DB doesn't work } " . $e->getMessage();
         }
         return $this->conn;
     }

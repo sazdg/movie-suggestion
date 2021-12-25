@@ -17,7 +17,7 @@ $risp = $result->fetch();
 
 //se esiste nel DBMS
 if($rispostaa == 1){
-    echo json_encode(array("message" => $datilogin->nome, "esiste" => true));
+    echo json_encode(array("message" => $datilogin->nome, "esiste" => true, "utente" => $datilogin->nome));
     $_SESSION["nome"] = $datilogin->nome;
 } else {
     echo json_encode(array("message" => "<br/>Non sei registrato..." . $datilogin->nome . "...", "esiste" => false));

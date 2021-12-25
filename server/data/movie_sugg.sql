@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 22, 2021 alle 18:43
+-- Creato il: Dic 25, 2021 alle 13:05
 -- Versione del server: 10.1.38-MariaDB
 -- Versione PHP: 7.3.3
 
@@ -25,39 +25,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `movie`
+-- Struttura della tabella `movies`
 --
 
-CREATE TABLE `movie` (
+CREATE TABLE `movies` (
   `title` varchar(50) NOT NULL,
-  `year` int(4) NOT NULL,
+  `year` int(50) NOT NULL,
   `genre` varchar(50) NOT NULL,
+  `mood` varchar(50) NOT NULL,
   `rating` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dump dei dati per la tabella `movie`
+-- Dump dei dati per la tabella `movies`
 --
 
-INSERT INTO `movie` (`title`, `year`, `genre`, `rating`) VALUES
-('il padrino', 1072, 'action', 9),
-('pulp fiction', 1994, 'action', 8),
-('forrest gump', 1994, 'drama', 8),
-('matrix', 1999, 'sci-fi', 8),
-('la città incantata', 2001, 'adventure', 8),
-('parasite', 2019, 'drama', 8),
-('alien', 1979, 'sci-fi', 8),
-('shining', 1980, 'horror', 8),
-('Love actually', 2004, 'romance', 7),
-('il padrino', 1072, 'action', 9.1),
-('pulp fiction', 1994, 'action', 8.8),
-('forrest gump', 1994, 'drama', 8.7),
-('matrix', 1999, 'sci-fi', 8.6),
-('la città incantata', 2001, 'adventure', 8.5),
-('parasite', 2019, 'drama', 8.5),
-('alien', 1979, 'sci-fi', 8.4),
-('shining', 1980, 'horror', 8.4),
-('Love actually', 2004, 'romance', 7);
+INSERT INTO `movies` (`title`, `year`, `genre`, `mood`, `rating`) VALUES
+('Forrest gump', 1994, 'Drama', 'Intense', 8),
+('Il padrino', 1972, 'Action', 'ThrillingThrilling', 9),
+('In the mood for love', 2000, 'Romance', 'Romantic', 7.5),
+('La città incantata', 2001, 'Adventure', 'Touching', 8),
+('Matrix', 1999, 'Sci-Fi', 'Thought-provoking', 8),
+('Parasite', 2019, 'drama', 'Intense', 8),
+('Phantom thread', 2018, 'Romance', 'Romantic', 7.5),
+('Pulp fiction', 1994, 'Action', 'Funny', 8.5),
+('Shining', 1980, 'horror', 'Intense', 8);
 
 -- --------------------------------------------------------
 
@@ -77,11 +69,18 @@ CREATE TABLE `utente` (
 
 INSERT INTO `utente` (`nome`, `password`, `email`) VALUES
 ('amministratore', 'amministratore', ''),
-('sara', '12345', 'saradegra@gmail.com');
+('babbonatale', 'babbo@natale.com', '25dic'),
+('sara', 'sara', 'saradegra@gmail.com');
 
 --
 -- Indici per le tabelle scaricate
 --
+
+--
+-- Indici per le tabelle `movies`
+--
+ALTER TABLE `movies`
+  ADD UNIQUE KEY `title` (`title`);
 
 --
 -- Indici per le tabelle `utente`

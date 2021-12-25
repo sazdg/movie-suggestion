@@ -13,12 +13,12 @@ $(document).ready(function () {
                     <input type="text" name="email" id="email" required><br />
                     Password:<br />
                     <input type="password" name="password" id="pass" required><br />
-                    <input type="submit" value="Registrati!" id="send">
+                    <input type="submit" class="btn btn-primary" value="Registrati!" id="send">
                 </form>
             </div>
 
             <div class="container-fluid">
-                <a href="index.html">Torna alla homepage</a>
+                <a href="index.html">Torna alla home</a>
             </div>
         </div>`;
 
@@ -49,12 +49,14 @@ $(document).ready(function () {
             data: registratiJson,
         })
             .done(function (response) {
-                var risultati = "<div class='container-fluid'><p>" + response.message + "</p></div>";
+                var risultati = "<div class='container-fluid'><p>" + response.message + "</p";
+                risultati += "<br/><br/><a href='index.html'>Torna alla homepage per fare il login!</a></div>";
                 $("#app").html(risultati);
             })
             .fail(function (xhr, resp, text) {
                 console.log(text);
-                var ops = "<div class='container-fluid'><p>errore</p></div>";
+                var ops = "<div class='container-fluid'><p>" + response.message + "</p>";
+                ops += "<br/><br/><button type='button' id='registrazione'>RIPROVA</button></div>";
                 $("#app").html(ops);
             });
         return false;

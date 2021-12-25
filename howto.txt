@@ -7,18 +7,49 @@ js
 movie:
 year
 genre
+mood
 title
 rating
 
 azioni nel DB:
-lettura (utente) (movie)
-inserimento (nuovo utente) (movie - solo per amministratore)
-cancellazione (movie - solo per amministratore)
+>- READ (utente) (movie)
+>- INSERT (nuovo utente) (movie - solo per amministratore)
+- DELETE (movie - solo per amministratore)
+- aggiunte opzionali
 
 sessione utente:
-locandine film visti in precedenza
-film appena consigliati
-lista film da vedere (?)
+- locandine film visti in precedenza
+- film appena consigliati
+- lista film da vedere (?)
+
+websites inspo
+https://agoodmovietowatch.com/mood/
+
+TITLE IDEAS:
+- suggest me a movie
+- movie recommendation engine
+- movie suggestions
+- pick a movie for me
+
+INDEX > login o registrazione
+UTENTE > scegli il MOOD
+        carosello con i film consigliati in precedenza basato sulla sessione
+        button logout
+AMMINISTRATORE > aggiungere un nuovo film
+                eliminare un film 
+
+utente
+- scegliere uno o più generi 
+> scegliere una emozione / feeling / mood 
+> registrazione nel db
+> login nel db con sessione
+- cercare un film e vedere le specifiche & il trailer READ
+- cercare un film basato sul rating 
+
+amministratore
+> aggiungere film INSERT
+> cancellare film DELETE
+- modificare il film UPDATE (optional)
 
 1 - creare la pagina index id app
 1.1 - creare un database

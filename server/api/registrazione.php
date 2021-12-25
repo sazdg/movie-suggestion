@@ -5,7 +5,7 @@ $db = $database->connessione();
 
 $datiReg = json_decode(file_get_contents("php://input"));
 
-$query = "INSERT INTO utente (nome, password, email) VALUES (:n, :e, :p)";
+$query = "INSERT INTO utente (nome, password, email) VALUES (:n, :p, :e)";
 $result = $db->prepare($query);
 $result->execute([
     "n" => $datiReg->nome,
@@ -14,8 +14,8 @@ $result->execute([
 ]);
 
 if($result == true){
-    echo json_encode(array("message" => "fatto"));
+    echo json_encode(array("message" => "Registrazione completata con successo!"));
 } else {
-    echo json_encode(array("message" => "non fatto"));
+    echo json_encode(array("message" => "Registrazione non riuscita, riprova"));
 }
 ?>
