@@ -13,8 +13,8 @@ rating
 
 azioni nel DB:
 >- READ (utente) (movie)
->- INSERT (nuovo utente) (movie - solo per amministratore)
-- DELETE (movie - solo per amministratore)
+>> INSERT (nuovo utente) (movie - solo per amministratore)
+> DELETE (movie - solo per amministratore)
 - aggiunte opzionali
 
 sessione utente:
@@ -31,12 +31,14 @@ TITLE IDEAS:
 - movie suggestions
 - pick a movie for me
 
+PHP:
 INDEX > login o registrazione
-UTENTE > scegli il MOOD
-        carosello con i film consigliati in precedenza basato sulla sessione
+UTENTE - scegli il MOOD
+        - carosello con i film consigliati in precedenza basato sulla sessione
         button logout
-AMMINISTRATORE > aggiungere un nuovo film
-                eliminare un film 
+        - sessione
+AMMINISTRATORE  > aggiungere un nuovo film
+                > eliminare un film 
 
 utente
 - scegliere uno o più generi 

@@ -16,13 +16,14 @@ $(document).ready(function(){
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-touching">Touching</button>
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-thought-provoking">Thought-provoking</button>
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-funny">Funnny</button>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-blow">Blow-minding</button>
     </div>
     
     <div class="container-fluid" id="carousel">
         <h3>Here's your history</h3>
         <p id="history">NULL</p>
     </div>
-    <div class="container-fluid">
+    <div class="containers">
         <a href="index.html">Torna alla home</a>
     </div>`;
 

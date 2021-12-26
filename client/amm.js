@@ -1,33 +1,78 @@
-$(document).ready(function(){
+$(document).ready(function () {
+
+
     var bodyAmm = `
-        <div class="container-fluid">
+    <div class="container-fluid">
         <h3>Aggiungi un nuovo film</h3>
-        <form method="get">
+        <form id="newMovie">
             Titolo:<br/>
-            <input type="text" id="nome"><br/>
+            <input type="text" name="titolo" id="titolo"><br/>
             Anno:<br />
-            <input type="number" id="anno"> <br />
+            <input type="number" name="anno" id="anno"> <br />
             Genere:<br />
-            <input type="text" id="genere"><br />
+            <input type="text" name="genere" id="genere"><br />
             Mood:<br />
-            <input type="text" id="mood"><br />
+            <input type="text" name="mood" id="mood"><br />
             Rating:<br />
-            <input type="number" id="rating"><br/>
-            <input type="submit" class="btn btn-primary" id="newMovie" value="Invia al DB">
+            <input type="number" name="rating" id="rating" step="0.1"><br/>
+            <input type="submit" class="btn btn-primary" value="Invia al DB">
         </form>
-        <h3>Cancella un film</h3>
-        <form method="get" >
-            <select name="film" id="film">
-                <option selected>Open this select menu</option>
-                <option value="Il padrino">Il padrino - anno</option>
-                <option value="Matrix">Matrix - anno</option>
-            </select><br/>
-            <input type="submit" class="btn btn-primary" id="deleteMovie" value="Invia al DB">
-        </form>
+        <div id="newResp"></div>
+
+        <h3>ELenco dei film <br/></h3>
+        <div id="deleteResp"></div>
+        <div class="container-fluid" id="table"></div>
+        
     </div>
     <div class="container-fluid">
         <a href="index.html">Torna alla home</a>
     </div>`;
 
     $("#titolo-a").append(bodyAmm);
-});
+    import("./tableMovies.js");
+
+    //chiamata ajax per creare un film
+    $(document).on("submit", "#newMovie", function () {
+        var titolo = $("#titolo").val();
+        var anno = $("#anno").val();
+        var genere = $("#genere").val();
+        var mood = $("#mood").val();
+        var rating = $("#rating").val();
+
+        $.ajax({
+            url: "http://localhost/cime/movie-suggestion/server/api/newMovie.php?titolo=" + titolo + "&anno=" + anno + "&genere=" + genere + "&mood=" + mood + "&rating=" + rating,
+            type: "GET",
+            dataType: "json"
+        })
+            .done(function (response) {
+                var x = "<p>" + response.message + "</p>";
+                $("#newResp").html(x);
+            })
+            .fail(function (xhr, resp, text) {
+                console.log(txt);
+                $("#newResp").html(text);
+            });
+        return false;
+    });
+
+    //chiamata ajax per eliminare un film
+    //tabella con le cose da eliminare
+    $(document).on("click", "#deleteMovie", function () {
+        var title = $(this).attr("data-title");
+
+        $.ajax({
+            url: "http://localhost/cime/movie-suggestion/server/api/deleteMovie.php?titolo=" + title,
+            type: "DELETE",
+            dataType: "json"
+        })
+            .done(function (response) {
+                var x = "<p>" + response.message + "</p>";
+                $("#deleteResp").html(x);
+            })
+            .fail(function (xhr, resp, text) {
+                console.log(txt);
+                $("#deleteResp").html(text);
+            });
+        return false;
+    });
+})

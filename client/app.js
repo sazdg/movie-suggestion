@@ -40,11 +40,11 @@ $(document).ready(function () {
             .done(function (response) {
                 if (response.esiste == true) {
                     if (response.utente == "amministratore") {
-                        var amm = "<div class='container-fluid' id='titolo-a'><p>" + response.message + "</p></div><div class='container-fluid' id='body-amm'></div>";
+                        var amm = "<div class='container-fluid' id='titolo-a'><p>" + response.message + " mode ON...</p></div><div class='container-fluid' id='body-amm'></div>";
                         $("#app").html(amm);
                         import("./amm.js");
                     } else {
-                        var risp = "<div class='container-fluid' id='titolo-u'><h3>Welcome back " + response.message + "!!</h3></div><div class='container-fluid' id='contenuti'></div>";
+                        var risp = "<div class='container-fluid' id='titolo-u'><h3>Welcome back " + response.message + "!</h3></div><div class='container-fluid' id='contenuti'></div>";
                         $("#app").html(risp);
                         import("./home.js");
                     }

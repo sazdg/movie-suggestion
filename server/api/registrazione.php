@@ -3,6 +3,7 @@ include("../data/Database.php");
 $database = new Database();
 $db = $database->connessione();
 
+//dati POST
 $datiReg = json_decode(file_get_contents("php://input"));
 
 $query = "INSERT INTO utente (nome, password, email) VALUES (:n, :p, :e)";

@@ -17,7 +17,7 @@ $(document).ready(function () {
                 </form>
             </div>
 
-            <div class="container-fluid">
+            <div class="container">
                 <a href="index.html">Torna alla home</a>
             </div>
         </div>`;
