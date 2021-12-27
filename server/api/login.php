@@ -1,26 +1,36 @@
 <?php
-include("../data/Database.php");
-$database = new Database();
-$db = $database->connessione();
+session_start();
+$infosessione = session_status();
+if(!isset($_SESSION["nome"])){
 
-$datilogin = json_decode(file_get_contents("php://input"));
-//var_dump($datilogin);
+    //se non esiste sessione, fare il login
+    include("../data/Database.php");
+    $database = new Database();
+    $db = $database->connessione();
 
-$query = "SELECT * FROM utente WHERE nome = ? AND password = ?";
-$result = $db->prepare($query);
-$result->bindParam(1, $datilogin->nome);
-$result->bindParam(2, $datilogin->password);
-$result->execute();
+    $datilogin = json_decode(file_get_contents("php://input"));
+    //var_dump($datilogin);
 
-$rispostaa = $result->rowCount();
-$risp = $result->fetch();
+    $query = "SELECT * FROM utente WHERE nome = ? AND password = ?";
+    $result = $db->prepare($query);
+    $result->bindParam(1, $datilogin->nome);
+    $result->bindParam(2, $datilogin->password);
+    $result->execute();
 
-//se esiste nel DBMS
-if($rispostaa == 1){
-    echo json_encode(array("message" => $datilogin->nome, "esiste" => true, "utente" => $datilogin->nome));
-    $_SESSION["nome"] = $datilogin->nome;
+    $rispostaa = $result->rowCount();
+    $risp = $result->fetch();
+
+    //se esiste nel DBMS
+    if($rispostaa == 1){
+        
+        $_SESSION["nome"] = $datilogin->nome;
+        echo json_encode(array("message" => $datilogin->nome, "esiste" => true, "utente" => $datilogin->nome, "infosessione" => $infosessione));
+    } else {
+        echo json_encode(array("message" => "Non sei registrato..." . $datilogin->nome . "...", "esiste" => false));
+    }
 } else {
-    echo json_encode(array("message" => "<br/>Non sei registrato..." . $datilogin->nome . "...", "esiste" => false));
+    echo json_encode(array("message" => $_SESSION["nome"], "esiste" => true, "utente" => $_SESSION["nome"], "infosessione" => $infosessione));
 }
+
 
 ?>

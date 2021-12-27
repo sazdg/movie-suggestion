@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     var bodyAmm = `
     <div class="container-fluid">
         <h3>Aggiungi un nuovo film</h3>
@@ -24,11 +23,15 @@ $(document).ready(function () {
         <div class="container-fluid" id="table"></div>
         
     </div>
+    <div class="containers">
+        <a href="./index.html">Vai alla home page</a>
+    </div>
     <div class="container-fluid">
-        <a href="index.html">Torna alla home</a>
+        <button type="button" id="logout">FAI IL LOGOUT</button>
     </div>`;
 
-    $("#titolo-a").append(bodyAmm);
+    //appena carica amm.js si importa la tabella
+    $("#titolo-a").html(bodyAmm);
     import("./tableMovies.js");
 
     //chiamata ajax per creare un film

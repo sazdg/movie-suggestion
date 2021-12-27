@@ -24,10 +24,13 @@ $(document).ready(function(){
         <p id="history">NULL</p>
     </div>
     <div class="containers">
-        <a href="index.html">Torna alla home</a>
+        <a href="./index.html">Vai alla home page</a>
+    </div>
+    <div class="containers">
+        <button type="button" id="logout">FAI IL LOGOUT</button>
     </div>`;
 
-    $("#titolo-u").append(home);
+    $("#titolo-u").html(home);
 
     /*
     dopo esserti autenticato > login.php > response home.js

@@ -36,9 +36,11 @@ INDEX > login o registrazione
 UTENTE - scegli il MOOD
         - carosello con i film consigliati in precedenza basato sulla sessione
         button logout
-        - sessione
+        - session
+        - fare logout -> session_destroy();
 AMMINISTRATORE  > aggiungere un nuovo film
                 > eliminare un film 
+                - logout
 
 utente
 - scegliere uno o più generi 
@@ -47,6 +49,7 @@ utente
 > login nel db con sessione
 - cercare un film e vedere le specifiche & il trailer READ
 - cercare un film basato sul rating 
+- logout
 
 amministratore
 > aggiungere film INSERT
@@ -58,3 +61,6 @@ amministratore
 2 - creare classe per la creazione della connessione al db
 3 - chiamata e controllo login in login.php
 4 - creare le pagine js con codice html dell'interfaccia e l chiamata ajax alla api 
+
+TO DO:
+- creare una classe php per il film, gestire le query da li

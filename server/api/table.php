@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../data/Database.php");
 $database = new Database();
 $db = $database->connessione();
