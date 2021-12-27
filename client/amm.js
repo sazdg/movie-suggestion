@@ -18,7 +18,7 @@ $(document).ready(function () {
         </form>
         <div id="newResp"></div>
 
-        <h3>ELenco dei film <br/></h3>
+        <h3>Elenco dei film <br/></h3>
         <div id="deleteResp"></div>
         <div class="container-fluid" id="table"></div>
         
@@ -27,7 +27,7 @@ $(document).ready(function () {
         <a href="./index.html">Vai alla home page</a>
     </div>
     <div class="container-fluid">
-        <button type="button" id="logout">FAI IL LOGOUT</button>
+        <button type="button" class="btn btn-outline-danger" id="logout">FAI IL LOGOUT</button>
     </div>`;
 
     //appena carica amm.js si importa la tabella

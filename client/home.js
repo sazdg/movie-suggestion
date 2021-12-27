@@ -17,6 +17,7 @@ $(document).ready(function(){
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-thought-provoking">Thought-provoking</button>
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-funny">Funnny</button>
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-blow">Blow-minding</button>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-chilling">Chilling</button>
     </div>
     
     <div class="container-fluid" id="carousel">
@@ -27,7 +28,7 @@ $(document).ready(function(){
         <a href="./index.html">Vai alla home page</a>
     </div>
     <div class="containers">
-        <button type="button" id="logout">FAI IL LOGOUT</button>
+        <button type="button" class="btn btn-outline-danger" id="logout">FAI IL LOGOUT</button>
     </div>`;
 
     $("#titolo-u").html(home);

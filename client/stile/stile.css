@@ -11,3 +11,7 @@ button, input[type="submit"] {
     margin: 5px;
     border: none;
 }
+#fotoHome {
+    max-width: 100%;
+    height: auto;
+}

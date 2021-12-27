@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     //click sul bottone registrazione
     //link per tornare alla home index page
-    $("#registrazione").click(function () {
+    $(document).on("click", "#registrazione", function () {
         $("#app").html(reg);
     });
 

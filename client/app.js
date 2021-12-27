@@ -1,13 +1,12 @@
 $(document).ready(function () {
     //index app
-    var app = `
+    var header = `
     <div class="container">
-    <h3 class="d-flex justify-content-center" >Movie Recommendation Engine</h3>
-    <img src="./img/cinema3.jpg" alt="cinema" width="100%">
-    </div>
-    <div class="container" id="content"></div>`;
+    <h3 class="d-flex justify-content-center" >Movie Recommendation Engine</h3></div>
+    <div class="container" id="content"></div>
+    <img src="./img/cinema3.jpg" alt="cinema" class="img-fluid" id="fotoHome">`;
     //home page sia per loggati che non.
-    $("#app").html(app);
+    $("#app").html(header);
 
     //controllare se esistono dei cookie di sessione, appena si apre la pagina
     checkSession();
@@ -31,7 +30,7 @@ $(document).ready(function () {
                     //display buttons login and register
                     var log = `<div class="container d-flex justify-content-center">
                     <button type="button" class="btn btn-primary" id="login">Login</button>
-                    <button type="button" class="btn btn-primary" id="registrazione">Registrati</button><br/>
+                    <button type="button" class="btn btn-primary" id="registrazione">Registrati</button>
                     </div>`;
                     $("#content").html(log);
                 }
@@ -112,22 +111,24 @@ $(document).ready(function () {
                     console.log("info sessione " + response.infosessione);
 
                     if (response.utente == "amministratore") {
-                        var amm = "<div class='container-fluid'><p>" + response.message + " mode ON...</p></div><div id='titolo-a'></div>";
+                        var amm = "<div class='d-flex justify-content-center'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-a'></div>";
+            
                         $("#app").html(amm);
                         import("./amm.js");
                     } else {
-                        var risp = "<div class='container-fluid' id='titolo-u'><h3>Welcome back " + response.message + "!</h3></div><div id='titolo-u'></div>";
+                        var risp = "<div class='d-flex justify-content-center'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-u'></div>";
                         $("#app").html(risp);
                         import("./home.js");
                     }
                 } else {
-                    var risposta = "<div class='container-fluid' id='titolo2'><p>" + response.message + "</p></div>";
+                    var risposta = "<div class='d-flex justify-content-center'><h3>Movie Recommendation Engine</h3></div><div class='container-fluid' id='titolo2'><p>" + response.message + "</p></div>";
                     $("#app").html(risposta);
                     import("./registrati.js");
                 }
             })
             .fail(function (xhr, resp, text) {
                 console.log(text);
+                console.log("errore in app.js #loggati");
                 var err = "<div class='container-fluid'><p>Something went wrong ops</p></div>";
                 $("#app").html(err);
             });
