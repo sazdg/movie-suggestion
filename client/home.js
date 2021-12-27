@@ -1,35 +1,32 @@
 $(document).ready(function(){
 
     var home = `
-    <div class="container-fluid" id="cerca">
+    <div class="container-fluid d-flex justify-content-center border border-white rounded p-3" id="cerca">
         <input type="text" placeholder="Cerca un film">
-        <input type="submit" class="btn btn-primary" value="Send query" id="sendQuery>
-    </div>
-
-    <div class="container-fluid" id="mood">
+        <input type="submit" class="btn btn-primary" value="Search" id="sendQuery">
+    </div><br/>
+    <div class="container-fluid border border-white rounded p-3" id="mood">
         <h3>MOODS</h3>
         <p>Choose one to see the list of movies we have for you</p>
     
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-intense">Intense</button>
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-thrilling">Thrilling</button>
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-romantic">Romantic</button>
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-touching">Touching</button>
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-thought-provoking">Thought-provoking</button>
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-funny">Funnny</button>
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-blow">Blow-minding</button>
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="button" id="b-chilling">Chilling</button>
-    </div>
-    
-    <div class="container-fluid" id="carousel">
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" id="b-intense">Intense</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" id="b-thrilling">Thrilling</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" id="b-romantic">Romantic</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" id="b-touching">Touching</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" id="b-thought-provoking">Thought-provoking</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" id="b-funny">Funnny</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" id="b-blow">Blow-minding</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" id="b-chilling">Chilling</button>
+    </div><br/>
+
+    <div class="container-fluid border border-white rounded p-3" id="carousel">
         <h3>Here's your history</h3>
         <p id="history">NULL</p>
-    </div>
-    <div class="containers">
-        <a href="./index.html">Vai alla home page</a>
-    </div>
-    <div class="containers">
-        <button type="button" class="btn btn-outline-danger" id="logout">FAI IL LOGOUT</button>
-    </div>`;
+    </div><br/>
+
+    <div class="container d-flex justify-content-center p-5">
+        <button type="button" class="btn btn-outline-info"><a href="./index.html">Vai alla home page</a></button>
+        <button type="button" class="btn btn-outline-danger" id="logout">Logout</button></div>`;
 
     $("#titolo-u").html(home);
 

@@ -2,7 +2,7 @@ $(document).ready(function () {
     //index app
     var header = `
     <div class="container">
-    <h3 class="d-flex justify-content-center" >Movie Recommendation Engine</h3></div>
+    <h3 class="d-flex justify-content-center p-4">Movie Recommendation Engine</h3></div>
     <div class="container" id="content"></div>
     <img src="./img/cinema3.jpg" alt="cinema" class="img-fluid" id="fotoHome">`;
     //home page sia per loggati che non.
@@ -22,13 +22,14 @@ $(document).ready(function () {
                 //se l'utente esiste == è registrato
                 if (response.esiste == true) {
                     //display button welcome, enter
-                    var welcome = `<div class="container d-flex justify-content-center">
+                    var welcome = `<div class="container d-flex justify-content-center p-5">
                     <button type="button" class="btn btn-primary" id="entra">Vai alla tua pagina</button>
+                    <button type="button" class="btn btn-outline-danger" id="logout">Logout</button></div>
                     </div>`;
                     $("#content").html(welcome);
                 } else {
                     //display buttons login and register
-                    var log = `<div class="container d-flex justify-content-center">
+                    var log = `<div class="container d-flex justify-content-center p-5">
                     <button type="button" class="btn btn-primary" id="login">Login</button>
                     <button type="button" class="btn btn-primary" id="registrazione">Registrati</button>
                     </div>`;
@@ -48,12 +49,12 @@ $(document).ready(function () {
         })
             .done(function (response) {
                 if (response.utente == "amministratore") {
-                    var x = "<div class='d-flex justify-content-center'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-a'></div>";
+                    var x = "<div class='d-flex justify-content-center p-4'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-a'></div>";
                     $("#app").html(x);
                     import("./amm.js");
 
                 } else {
-                    var x = "<div class='d-flex justify-content-center'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-u'></div>";
+                    var x = "<div class='d-flex justify-content-center p-4'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-u'></div>";
                     $("#app").html(x);
                     import("./home.js");
                 }
@@ -68,8 +69,8 @@ $(document).ready(function () {
     $(document).on("click", "#login", function () {
         var form = `
     <div class="container">
-    <h3 class="d-flex justify-content-center">Movie Recommendation Engine</h3>
-            <div class="container-fluid">
+    <h3 class="d-flex justify-content-center p-4">Movie Recommendation Engine</h3>
+            <div class="container-fluid d-flex justify-content-center border border-white rounded-3 p-5">
                 <form>
                     Nome<br />
                     <input type="text" name="nome" id="nome"><br />
@@ -77,13 +78,13 @@ $(document).ready(function () {
                     <input type="password" name="password" id="pass"><br />
                     <button type="button" class="btn btn-primary" id="loggati"> Login </button>
                 </form>
-            </div>
-            <div class="container-fluid">
+            </div><br/>
+            <div class="container-fluid d-flex justify-content-center p-4">
                 <p>Registrati per salvare la lista dei tuoi film!</p>
                 <button type="button" class="btn btn-primary" id="registrazione"> Vai alla  registrazione </button>
             </div>
-            <div class="containers">
-                <a href="index.html">Torna alla home</a>
+            <div class="container d-flex justify-content-center p-5">
+                <button type="button" class="btn btn-outline-info"><a href="index.html">Torna alla home</a></button>
             </div></div>`;
 
         $("#app").html(form);
@@ -111,17 +112,17 @@ $(document).ready(function () {
                     console.log("info sessione " + response.infosessione);
 
                     if (response.utente == "amministratore") {
-                        var amm = "<div class='d-flex justify-content-center'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-a'></div>";
+                        var amm = "<div class='d-flex justify-content-center p-4'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-a'></div>";
             
                         $("#app").html(amm);
                         import("./amm.js");
                     } else {
-                        var risp = "<div class='d-flex justify-content-center'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-u'></div>";
+                        var risp = "<div class='d-flex justify-content-center p-4'><h3>Movie Recommendation Engine</h3></div><div class='container' id='titolo-u'></div>";
                         $("#app").html(risp);
                         import("./home.js");
                     }
                 } else {
-                    var risposta = "<div class='d-flex justify-content-center'><h3>Movie Recommendation Engine</h3></div><div class='container-fluid' id='titolo2'><p>" + response.message + "</p></div>";
+                    var risposta = "<div class='d-flex justify-content-center p-4'><h3>Movie Recommendation Engine</h3></div><div class='container-fluid' id='titolo2'><p>" + response.message + "</p></div>";
                     $("#app").html(risposta);
                     import("./registrati.js");
                 }

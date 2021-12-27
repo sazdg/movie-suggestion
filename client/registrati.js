@@ -3,9 +3,11 @@ $(document).ready(function () {
     //HTML REGISTRAZIONE FORM
     var reg = `
     <div class="container">
-            <h3>Pagina di registrazione</h3>
+    <h3 class="d-flex justify-content-center p-4">Movie Recommendation Engine</h3>
+        <div class="container-fluid d-flex justify-content-center p-4">
+            <h3>Pagina di registrazione</h3></div>
 
-            <div class="container-fluid">
+            <div class="container-fluid d-flex justify-content-center border border-white rounded-3 p-5">
                 <form method="post" action="registrati.php">
                     Nome:<br />
                     <input type="text" name="nome" id="nome" required><br />
@@ -17,10 +19,9 @@ $(document).ready(function () {
                 </form>
             </div>
 
-            <div class="container">
-                <a href="index.html">Torna alla home</a>
-            </div>
-        </div>`;
+            <div class="container d-flex justify-content-center p-5 mt-5">
+                <button type="button" class="btn btn-outline-info"><a href="index.html">Torna alla home</a></button>
+            </div>`;
 
     //click sul bottone registrazione
     //link per tornare alla home index page
@@ -50,7 +51,7 @@ $(document).ready(function () {
         })
             .done(function (response) {
                 var risultati = "<div class='container-fluid'><p>" + response.message + "</p";
-                risultati += "<br/><br/><a href='index.html'>Torna alla homepage per fare il login!</a></div>";
+                risultati += "<br/><br/><button type='button' class='btn btn - outline - primary'><a href='./ index.html'>Vai alla home page per fare il Login</a></button></div>";
                 $("#app").html(risultati);
             })
             .fail(function (xhr, resp, text) {

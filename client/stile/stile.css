@@ -2,7 +2,8 @@
 
 body {
     font-family: 'Didact Gothic', sans-serif;
-    background-color:khaki;
+    background-color:rgb(31, 31, 31);
+    color: #fff;
 }
 
 
@@ -14,4 +15,26 @@ button, input[type="submit"] {
 #fotoHome {
     max-width: 100%;
     height: auto;
+}
+
+input[type="text"], input[type="number"], input[type="password"], input[type="submit"]{
+    padding: 5px 15px;
+    margin: 10px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #0BCAF0;
+}
+a:hover, button:hover {
+    color: #fff;
+}
+
+#footer {
+    background-color: firebrick;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }

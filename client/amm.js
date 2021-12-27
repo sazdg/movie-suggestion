@@ -1,34 +1,36 @@
 $(document).ready(function () {
 
     var bodyAmm = `
-    <div class="container-fluid">
+    <div class="container-fluid d-flex justify-content-center p-3">
         <h3>Aggiungi un nuovo film</h3>
+        </div>
+
+        <div class="d-flex justify-content-center border border-white rounded p-5">
         <form id="newMovie">
-            Titolo:<br/>
-            <input type="text" name="titolo" id="titolo"><br/>
-            Anno:<br />
-            <input type="number" name="anno" id="anno"> <br />
-            Genere:<br />
-            <input type="text" name="genere" id="genere"><br />
-            Mood:<br />
-            <input type="text" name="mood" id="mood"><br />
-            Rating:<br />
-            <input type="number" name="rating" id="rating" step="0.1"><br/>
+            <label>Titolo:<br/>
+            <input type="text" name="titolo" id="titolo"></label><br/>
+            <label>Anno:<br />
+            <input type="number" name="anno" id="anno"></label><br />
+            <label>Genere:<br />
+            <input type="text" name="genere" id="genere"></label><br />
+            <label>Mood:<br />
+            <input type="text" name="mood" id="mood"></label><br />
+            <label>Rating:<br />
+            <input type="number" name="rating" id="rating" step="0.1"></label><br/>
             <input type="submit" class="btn btn-primary" value="Invia al DB">
         </form>
+        </div>
         <div id="newResp"></div>
-
+        <br/>
+        <div class="container-fluid p-3">
         <h3>Elenco dei film <br/></h3>
         <div id="deleteResp"></div>
-        <div class="container-fluid" id="table"></div>
-        
-    </div>
-    <div class="containers">
-        <a href="./index.html">Vai alla home page</a>
-    </div>
-    <div class="container-fluid">
-        <button type="button" class="btn btn-outline-danger" id="logout">FAI IL LOGOUT</button>
-    </div>`;
+        <div class="container-fluid p-3" id="table"></div>
+    </div><br/>
+
+    <div class="container d-flex justify-content-center p-5">
+        <button type="button" class="btn btn-outline-info"><a href="./index.html">Vai alla home page</a></button>
+        <button type="button" class="btn btn-outline-danger" id="logout">Logout</button></div>`;
 
     //appena carica amm.js si importa la tabella
     $("#titolo-a").html(bodyAmm);
