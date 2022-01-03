@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var bodyAmm = `
-    <div class="container-fluid d-flex justify-content-center p-3">
+    <div class="container-fluid p-3">
         <h3>Aggiungi un nuovo film</h3>
         </div>
 

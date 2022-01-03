@@ -29,9 +29,9 @@ $(document).ready(function () {
                     $("#content").html(welcome);
                 } else {
                     //display buttons login and register
-                    var log = `<div class="container d-flex justify-content-center p-5">
-                    <button type="button" class="btn btn-primary" id="login">Login</button>
-                    <button type="button" class="btn btn-primary" id="registrazione">Registrati</button>
+                    var log = `<div class="container d-flex justify-content-center p-4 pb-5">
+                    <button type="button" class="btn btn-primary btn-lg" id="login">Login</button>
+                    <button type="button" class="btn btn-primary btn-lg" id="registrazione">Registrati</button>
                     </div>`;
                     $("#content").html(log);
                 }
