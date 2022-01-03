@@ -31,7 +31,7 @@ $(document).ready(function(){
     </div><br/>
 
     <div class="container d-flex justify-content-center p-5">
-        <button type="button" class="btn btn-outline-info"><a href="./index.html">Vai alla home page</a></button>
+        <button type="button" class="btn btn-outline-primary"><a href="./index.html">Vai alla home page</a></button>
         <button type="button" class="btn btn-outline-danger" id="logout">Logout</button></div>`;
 
     $("#titolo-u").html(home);
@@ -57,7 +57,7 @@ $(document).ready(function(){
             dataType: "json",
         })
         .done(function(response){
-            console.log("risposta json: " + response.message);
+            //console.log("risposta json: " + response.message);
             var risp = "<div><ul class='list-group list-group-flush'>";
             for(let i = 0; i < response.film.length; i++){
                 
@@ -69,6 +69,7 @@ $(document).ready(function(){
             
         })
         .fail(function(xhr, resp, text){
+            console.log("errorejson");
             console.log(text);
         });
         return false;

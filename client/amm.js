@@ -29,7 +29,7 @@ $(document).ready(function () {
     </div><br/>
 
     <div class="container d-flex justify-content-center p-5">
-        <button type="button" class="btn btn-outline-info"><a href="./index.html">Vai alla home page</a></button>
+        <button type="button" class="btn btn-outline-primary"><a href="./index.html">Vai alla home page</a></button>
         <button type="button" class="btn btn-outline-danger" id="logout">Logout</button></div>`;
 
     //appena carica amm.js si importa la tabella
