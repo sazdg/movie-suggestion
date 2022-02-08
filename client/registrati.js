@@ -2,8 +2,6 @@ $(document).ready(function () {
 
     //HTML REGISTRAZIONE FORM
     var reg = `
-    <div class="container">
-    <h3 class="d-flex justify-content-center p-4">Movie Recommendation Engine</h3>
         <div class="container-fluid d-flex justify-content-center p-4">
             <h3>Pagina di registrazione</h3></div>
 
@@ -20,7 +18,7 @@ $(document).ready(function () {
             </div>
 
             <div class="container d-flex justify-content-center p-5 mt-5">
-                <button type="button" class="btn btn-outline-info"><a href="index.html">Torna alla home</a></button>
+                <button type="button" class="btn btn-outline-primary"><a href="index.html">Torna alla home</a></button>
             </div>`;
 
     //click sul bottone registrazione

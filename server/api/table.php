@@ -1,6 +1,6 @@
 <?php
-session_start();
-include("../data/Database.php");
+//session_start();
+require("../data/Database.php");
 $database = new Database();
 $db = $database->connessione();
 

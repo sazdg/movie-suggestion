@@ -1,0 +1,2 @@
+TO DO
+funzioni per stampare le pagine nella SPA 

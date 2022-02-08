@@ -1,40 +1,7 @@
 $(document).ready(function(){
 
-    var home = `
-    <div class="container-fluid d-flex justify-content-center border border-white rounded p-3" id="cerca">
-    <form id="find">
-        <input type="text" name="valore" id="valore" placeholder="Cerca un film">
-        <input type="submit" class="btn btn-primary" value="Search" id="sendQuery">
-    </form>
-    <br>
-    <div id="queryFilm"></div>
+    showHome(); 
 
-    </div><br/>
-    <div class="container-fluid border border-white rounded p-3" id="mood">
-        <h3>MOODS</h3>
-        <p>Choose one to see the list of movies we have for you</p>
-    
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Intense">Intense</button>
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Thrilling">Thrilling</button>
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Romantic">Romantic</button>
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Touching">Touching</button>
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Thought-provoking">Thought-provoking</button>
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Funny">Funny</button>
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Blow-minding">Blow-minding</button>
-        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Relaxing">Relaxing</button>
-    </div><br>
-    <div id="listafilm"></div>
-<br>
-    <div class="container-fluid border border-white rounded p-3" id="carousel">
-        <h3>Here's your history</h3>
-        <p id="history">NULL</p>
-    </div><br/>
-
-    <div class="container d-flex justify-content-center p-5">
-        <button type="button" class="btn btn-outline-primary"><a href="./index.html">Vai alla home page</a></button>
-        <button type="button" class="btn btn-outline-danger" id="logout">Logout</button></div>`;
-
-    $("#titolo-u").html(home);
 
     /*
     dopo esserti autenticato > login.php > response home.js
@@ -54,14 +21,14 @@ $(document).ready(function(){
         $.ajax({
             url:"http://localhost/cime/movie-suggestion/server/api/mood.php?mood=" + mood,
             type:"GET",
-            dataType: "json",
+            dataType: "json"
         })
         .done(function(response){
             //console.log("risposta json: " + response.message);
             var risp = "<div><ul class='list-group list-group-flush'>";
             for(let i = 0; i < response.film.length; i++){
                 
-                risp += "<li class='list-group-item'>" + response.film[i].title + "</li>";
+                risp += "<li class='list-group-item cliccato' data-title='" + response.film[i].title + "'><button type='button'>" + response.film[i].title + "</button></li>";
                 
             }
             risp += "</ul></div>";
@@ -74,6 +41,28 @@ $(document).ready(function(){
         });
         return false;
     });
+
+
+    $(document).on("click", ".cliccato", function(){
+        var valore = $(this).attr("data-title");
+        valore = valore.replace(/\s/g, "+");
+
+        $.ajax({
+            url: "http://localhost/cime/movie-suggestion/server/api/history.php?clickFilm=" + valore,
+            type: "GET",
+            dataType: "json"
+        })
+            .done(function (response) {
+                console.log("FUNZIONA cliccato film.js");
+                //import("./leggi.js");
+                showFilm();
+            })
+            .fail(function (xhr, resp, text) {
+                console.log("errore cliccato film.js" + text);
+            });
+        return false;
+    });
+
 
     $(document).on("click", "#sendQuery", function(){
 
@@ -101,4 +90,46 @@ $(document).ready(function(){
         return false;
     })
     
-})
+});
+
+function showHome() {
+    var home = `
+    <div class="container-fluid d-flex justify-content-center border border-white rounded p-3" id="cerca">
+    <form id="find">
+        <input type="text" name="valore" id="valore" placeholder="Cerca un film">
+        <input type="submit" class="btn btn-primary" value="Search" id="sendQuery">
+    </form>
+
+    <br>
+    <div id="queryFilm"></div>
+
+    </div><br/>
+    <div class="container-fluid border border-white rounded p-3" id="mood">
+        <h3>MOODS</h3>
+        <p>Choose one to see the list of movies we have for you</p>
+    
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Intense">Intense</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Thrilling">Thrilling</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Romantic">Romantic</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Touching">Touching</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Thought-provoking">Thought-provoking</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Funny">Funny</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Blow-minding">Blow-minding</button>
+        <button type="button" class="btn btn-outline-info" data-bs-toggle="button" data-name="Relaxing">Relaxing</button>
+    </div><br>
+    <div id="listafilm"></div>
+<br>
+    <div class="container-fluid border border-white rounded p-3" id="carousel">
+        <h3>Here's your history</h3>
+        <p id="history"></p>
+    </div><br/>
+
+    <div class="container d-flex justify-content-center p-5">
+        <button type="button" class="btn btn-outline-primary"><a href="./index.html">Vai alla home page</a></button>
+        <button type="button" class="btn btn-outline-danger" id="logout">Logout</button></div>`;
+
+    $("#titolo-u").html(home);
+
+    //import("./carosello.js");
+    showCarousel();
+};

@@ -17,11 +17,12 @@ button, input[type="submit"] {
     height: auto;
 }
 
-input[type="text"], input[type="number"], input[type="password"], input[type="submit"]{
+input[type="text"], input[type="number"], input[type="password"], input[type="submit"], select{
     padding: 5px 15px;
     margin: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     border-style: none;
+    width: 100%;
 }
 
 a {

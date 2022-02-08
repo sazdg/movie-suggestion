@@ -1,10 +1,11 @@
 <?php
 session_start();
 $infosessione = session_status();
+
 if(!isset($_SESSION["nome"])){
 
     //se non esiste sessione, fare il login
-    include("../data/Database.php");
+    require("../data/Database.php");
     $database = new Database();
     $db = $database->connessione();
 
@@ -24,6 +25,8 @@ if(!isset($_SESSION["nome"])){
     if($rispostaa == 1){
         
         $_SESSION["nome"] = $datilogin->nome;
+        $_SESSION["filmVisitati"] = array();
+        
         echo json_encode(array("message" => $datilogin->nome, "esiste" => true, "utente" => $datilogin->nome, "infosessione" => $infosessione));
     } else {
         echo json_encode(array("message" => "Non sei registrato..." . $datilogin->nome . "...", "esiste" => false));

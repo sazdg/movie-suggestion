@@ -1,5 +1,7 @@
 <?php
-include("../data/Database.php");
+session_start();
+
+require("../data/Database.php");
 $database = new Database();
 $db = $database->connessione();
 
@@ -15,6 +17,7 @@ $lista = array();
 $lista["message"] = $mood;
 $lista["film"] = array();
 
+
 if($esiste >= 1){
     while($x = $result->fetch(PDO::FETCH_ASSOC)){
         $film = array(
@@ -26,6 +29,7 @@ if($esiste >= 1){
         );
         array_push($lista["film"], $x);
     }
+
     echo json_encode($lista);
 
 } else {

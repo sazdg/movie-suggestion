@@ -71,3 +71,6 @@ giorni di lavoro: 6
 
 class="p-3"
 è il padding con bootstrap 
+
+history.php registra le nuove visite delle locandine dei film
+carosello.php appare al caricamento della pagina con le ultime locandine di film visitate
