@@ -1,14 +1,6 @@
 $(document).ready(function () {
     //index app
-    var foto = `
-    <div class="container" id="content"></div>
-    <img src="./img/cinema3.jpg" alt="cinema" class="img-fluid" id="fotoHome">`;
-    //home page sia per loggati che non.
-    $("#app").html(foto);
-
-    //controllare se esistono dei cookie di sessione, appena si apre la pagina
-    checkSession();
-
+    showApp();
 
     $(document).on("click", "#entra", function () {
         $.ajax({
@@ -38,7 +30,7 @@ $(document).ready(function () {
 
 
     $(document).on("click", "#login", function () {
-        var form = `
+        var form = `<div class="p-5">
             <div class="container-fluid d-flex justify-content-center border border-white rounded-3 p-4">
                 <form>
                     Nome<br />
@@ -59,11 +51,11 @@ $(document).ready(function () {
 
 
             <div class="container d-flex justify-content-center p-5">
-                <button type="button" class="btn btn-outline-primary"><a href="index.html">Torna alla home</a></button>
-            </div></div>`;
+                <button type="button" class="btn btn-outline-primary" onclick="showApp()">Torna alla home</button>
+            </div></div>
+            </div>`;
 
         $("#app").html(form);
-        $("#app").addClass("p-5");
     });
 
 
@@ -145,4 +137,17 @@ function checkSession() {
         .fail(function (xhr, resp, text) {
             console.log(xhr, resp, text);
         });
+};
+
+function showApp(){
+
+    var foto = `
+    <div class="container" id="content"></div>
+    <img src="./img/cinema3.jpg" alt="cinema" class="img-fluid" id="fotoHome">`;
+    //home page sia per loggati che non.
+    $("#app").html(foto);
+
+    //controllare se esistono dei cookie di sessione, appena si apre la pagina
+    checkSession();
+
 }

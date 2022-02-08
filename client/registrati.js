@@ -1,30 +1,11 @@
 $(document).ready(function () {
 
-    //HTML REGISTRAZIONE FORM
-    var reg = `
-        <div class="container-fluid d-flex justify-content-center p-4">
-            <h3>Pagina di registrazione</h3></div>
-
-            <div class="container-fluid d-flex justify-content-center border border-white rounded-3 p-5">
-                <form method="post" action="registrati.php">
-                    Nome:<br />
-                    <input type="text" name="nome" id="nome" required><br />
-                    Email:<br />
-                    <input type="text" name="email" id="email" required><br />
-                    Password:<br />
-                    <input type="password" name="password" id="pass" required><br />
-                    <input type="submit" class="btn btn-primary" value="Registrati!" id="send">
-                </form>
-            </div>
-
-            <div class="container d-flex justify-content-center p-5 mt-5">
-                <button type="button" class="btn btn-outline-primary"><a href="index.html">Torna alla home</a></button>
-            </div>`;
+    
 
     //click sul bottone registrazione
     //link per tornare alla home index page
     $(document).on("click", "#registrazione", function () {
-        $("#app").html(reg);
+        showRegistrazione();
     });
 
     //se login false, mostra la pagina registrazione
@@ -62,4 +43,30 @@ $(document).ready(function () {
 
     });
 
-})
+});
+
+function showRegistrazione() {
+    //HTML REGISTRAZIONE FORM
+    var reg = `<div class="p-5">
+        <div class="container-fluid d-flex justify-content-center p-4">
+            <h3>Pagina di registrazione</h3></div>
+
+            <div class="container-fluid d-flex justify-content-center border border-white rounded-3 p-5">
+                <form method="post" action="registrati.php">
+                    Nome:<br />
+                    <input type="text" name="nome" id="nome" required><br />
+                    Email:<br />
+                    <input type="text" name="email" id="email" required><br />
+                    Password:<br />
+                    <input type="password" name="password" id="pass" required><br />
+                    <input type="submit" class="btn btn-primary" value="Registrati!" id="send">
+                </form>
+            </div>
+
+            <div class="container d-flex justify-content-center p-5 mt-5">
+                <button type="button" class="btn btn-outline-primary" onclick="showApp()">Torna alla home</button>
+            </div>
+            </div>`;
+
+    $("#app").html(reg);
+}

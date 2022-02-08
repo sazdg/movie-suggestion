@@ -127,7 +127,7 @@ function showHome() {
     </div><br/>
 
     <div class="container d-flex justify-content-center p-5">
-        <button type="button" class="btn btn-outline-primary"><a href="./index.html">Vai alla home page</a></button>
+        <button type="button" class="btn btn-outline-primary" onclick="showApp()">Vai alla home page</button>
         <button type="button" class="btn btn-outline-danger" id="logout">Logout</button></div>`;
 
     $("#titolo-u").html(home);
