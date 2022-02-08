@@ -43,9 +43,10 @@ $(document).ready(function(){
     });
 
 
+    //modificare la variabile di sessione
     $(document).on("click", ".cliccato", function(){
-        var valore = $(this).attr("data-title");
-        valore = valore.replace(/\s/g, "+");
+        var film = $(this).attr("data-title");
+        valore = film.replace(/\s/g, "+");
 
         $.ajax({
             url: "http://localhost/cime/movie-suggestion/server/api/history.php?clickFilm=" + valore,
@@ -53,12 +54,11 @@ $(document).ready(function(){
             dataType: "json"
         })
             .done(function (response) {
-                console.log("FUNZIONA cliccato film.js");
-                //import("./leggi.js");
-                showFilm();
+                console.log(response + " click titolo film");
+                showFilm(film);
             })
             .fail(function (xhr, resp, text) {
-                console.log("errore cliccato film.js" + text);
+                console.log("errore cliccato home.js " + text);
             });
         return false;
     });

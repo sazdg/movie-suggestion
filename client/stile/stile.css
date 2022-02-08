@@ -1,11 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
 
+/*STICKY FOOTER WITH FLEX*/
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Didact Gothic', sans-serif;
     background-color:rgb(31, 31, 31);
     color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 
+#footer {
+    flex-shrink: 0;
+}
+#app {
+    flex: 1 0 auto;
+}
+/*END STICKY FOOTER*/
 
 button, input[type="submit"] {
     padding: 5px;

@@ -74,3 +74,6 @@ class="p-3"
 
 history.php registra le nuove visite delle locandine dei film
 carosello.php appare al caricamento della pagina con le ultime locandine di film visitate
+
+sticky footer
+https://css-tricks.com/couple-takes-sticky-footer/
