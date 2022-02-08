@@ -78,7 +78,7 @@ $(document).ready(function(){
             var risposta = "<div><ul class='list-group list-group-flush'>";
             for (let i = 0; i < response.film.length; i++) {
 
-                risposta += "<li class='list-group-item'>" + response.film[i].titolo + " " + response.film[i].rating + "</li>";
+                risposta += "<li class='list-group-item'>" + response.film[i].titolo + " (" + response.film[i].anno + ")</li>";
 
             }
             risposta += "</ul></div>";
@@ -94,14 +94,16 @@ $(document).ready(function(){
 
 function showHome() {
     var home = `
-    <div class="container-fluid d-flex justify-content-center border border-white rounded p-3" id="cerca">
+    <div class="container-fluid d-flex flex-wrap justify-content-center border border-white rounded p-3" id="cerca">
+    <div class="container row p-0">
     <form id="find">
         <input type="text" name="valore" id="valore" placeholder="Cerca un film">
         <input type="submit" class="btn btn-primary" value="Search" id="sendQuery">
     </form>
+    </div>
 
     <br>
-    <div id="queryFilm"></div>
+    <div class="container row p-3 justify-content-center" id="queryFilm">...</div>
 
     </div><br/>
     <div class="container-fluid border border-white rounded p-3" id="mood">

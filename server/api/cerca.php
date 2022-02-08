@@ -3,11 +3,12 @@ require("../data/Database.php");
 $database = new Database();
 $db = $database->connessione();
 
+//per cercare una parola specifica
 $valore = "%" . $_GET["cerca"] . "%";
 
-$query = "SELECT * FROM movies WHERE title = ?";
+$query = "SELECT * FROM movies WHERE title LIKE :cerca";
 $result = $db->prepare($query);
-$result->bindParam(1, $valore);
+$result->bindParam(":cerca", $valore);
 $result->execute();
 
 $lista = array();

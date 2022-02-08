@@ -11,22 +11,13 @@ $mood = $_GET["mood"];
 $rating = $_GET["rating"];
 
 //if movie already exists
-$q = "SELECT title FROM movies WHERE title = '$titolo'";
-$ris = $db->query($q);
+$ris = $db->query("SELECT * FROM movies WHERE title = '" . $titolo . "'");
 //$ris = $db->prepare($q);
 //$ris->bindParam(":titolo", $titolo);
 //$ris->execute();
-
 $conta = $ris->rowCount();
 
-while($riga = $ris->fetch(PDO::FETCH_ASSOC)){
-    var_dump($riga);
-
-}
-
-
-//! errore da sempre 1 
-if($conta = 1){
+if($conta == 1){
     echo json_encode(array("message" => "Film già presente nel database!"));
 
 } else {
