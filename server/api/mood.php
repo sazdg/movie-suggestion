@@ -6,6 +6,7 @@ $database = new Database();
 $db = $database->connessione();
 
 $mood = $_GET["mood"];
+$mood = htmlspecialchars(strip_tags($mood));
 
 $query = "SELECT * FROM movies WHERE mood = ?";
 $result = $db->prepare($query);

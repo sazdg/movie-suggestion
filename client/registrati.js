@@ -64,6 +64,7 @@ function showRegistrazione() {
             </div>
 
             <div class="container d-flex justify-content-center p-5 mt-5">
+            <button type="button" class="btn btn-primary btn-lg" id="login">Login</button>
                 <button type="button" class="btn btn-outline-primary" onclick="showApp()">Torna alla home</button>
             </div>
             </div>`;

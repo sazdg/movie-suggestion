@@ -5,6 +5,7 @@ $database = new Database();
 $db = $database->connessione();
 
 $filmScelto = $_GET["titolo"];
+$filmScelto = htmlspecialchars(strip_tags($filmScelto));
 
 //visualizza la scheda del film
 $query = "SELECT * FROM movies WHERE title = ?";

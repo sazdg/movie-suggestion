@@ -10,6 +10,12 @@ $genere = $_GET["genere"];
 $mood = $_GET["mood"];
 $rating = $_GET["rating"];
 
+$titolo = htmlspecialchars(strip_tags($titolo));
+$anno = htmlspecialchars(strip_tags($anno));
+$genere = htmlspecialchars(strip_tags($genere));
+$mood = htmlspecialchars(strip_tags($mood));
+$rating = htmlspecialchars(strip_tags($rating));
+
 //if movie already exists
 $ris = $db->query("SELECT * FROM movies WHERE title = '" . $titolo . "'");
 //$ris = $db->prepare($q);

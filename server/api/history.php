@@ -5,6 +5,7 @@ $database = new Database();
 $db = $database->connessione();
 
 $film = $_GET["clickFilm"];
+$film = htmlspecialchars(strip_tags($film));
 
 
 if($_SESSION["filmVisitati"] == null){

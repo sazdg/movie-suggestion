@@ -37,8 +37,8 @@ $(document).ready(function () {
             dataType: "json"
         })
             .done(function (response) {
-                var x = "<p>" + response.message + "</p>";
-                $("#deleteResp").html(x);
+                alert(response.message);
+                showAmm();
             })
             .fail(function (xhr, resp, text) {
                 console.log(txt);
